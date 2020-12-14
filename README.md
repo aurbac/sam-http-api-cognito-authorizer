@@ -41,11 +41,21 @@ In you Amplify project replace your **src/App.js** with the following file [src/
 
 For you **src/index.js** file replace: `<HttpApiUrl>` and `<Region>` with your own values.
 
+In your application Frontend make some call to the **API CALL** button, you will receive your message and the counter stored in the DynamoDB table.
+
+
+
 ## View AWS X-Ray service maps and trace views
 
 After you have **Api calls** in you React application, you can see in AWS X-Ray the information about your API and all of its downstream services, for this project you can see something like this:
 
-![View AWS X-Ray service maps and trace views](images/xray.png)
+###### AWS X-Ray Service Map
+
+![AWS X-Ray Service Map](images/xray-service-map.png)
+
+###### AWS X-Ray Traces
+
+![AWS X-Ray Traces](images/xray-traces.png)
 
 ## References
 

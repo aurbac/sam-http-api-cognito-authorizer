@@ -25,7 +25,7 @@ class App extends Component {
     if (userInfo){
       try {
         let apiName = 'HttpApi';
-        let path = 'hello';
+        let path = 'hello/hello';
         let myInit = {
             headers: { Authorization: `Bearer ${(await Auth.currentSession()).getAccessToken().getJwtToken()}` }, 
             response: true,

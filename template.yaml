@@ -54,17 +54,37 @@ Resources:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       CodeUri: hello-world/
-      Handler: app.lambdaHandler
-      Runtime: nodejs12.x
+      Handler: app.handler
+      Runtime: python3.8
+      Tracing: Active
+      Environment:
+        Variables:
+          MESSAGES_TABLE: !Ref MessagesTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref MessagesTable
       Events:
         HelloWorld:
           Type: HttpApi # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /hello
+            Path: /hello/{message}
             Method: get
             ApiId: !Ref HttpApi
             Auth:
               Authorizer: GeneralAuth
+
+  MessagesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+      - AttributeName: "message"
+        AttributeType: "S"
+      KeySchema:
+      - AttributeName: "message"
+        KeyType: "HASH"
+      BillingMode: "PAY_PER_REQUEST"
+      SSESpecification:
+        SSEEnabled: True
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function

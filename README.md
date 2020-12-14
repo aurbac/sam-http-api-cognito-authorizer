@@ -43,7 +43,7 @@ For **src/index.js** replace: `<HttpApiUrl>` and `<Region>` with your own values
 
 ## View AWS X-Ray service maps and trace views
 
-You can see in AWS X-Ray information about your API and all of its downstream services, for this project you can see something like this:
+You can see in AWS X-Ray the information about your API and all of its downstream services, for this project you can see something like this:
 
 ![View AWS X-Ray service maps and trace views](images/xray.png)
 

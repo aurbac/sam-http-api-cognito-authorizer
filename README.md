@@ -8,7 +8,7 @@
 
 ## Deploy the SAM application
 
-Based on the `AWS Quick Start Template` update the **[template.yml](template.yml)** and replace the files for the **[hello-world](hello-world)** code function.
+Based on the `AWS Quick Start Template` update the **[template.yaml](template.yaml)** and replace the files for the **[hello-world](hello-world)** code function.
 
 To build your application run the following using a docker container:
 
@@ -39,11 +39,11 @@ sam deploy --guided
 
 In you Amplify project replace your **src/App.js** with the following file [src/App.js](amplify/src/App.js) and **src/index.js** with the following file [src/index.js](amplify/src/index.js).
 
-For **src/index.js** replace: `<HttpApiUrl>` and `<Region>` with your own values.
+For you **src/index.js** file replace: `<HttpApiUrl>` and `<Region>` with your own values.
 
 ## View AWS X-Ray service maps and trace views
 
-You can see in AWS X-Ray the information about your API and all of its downstream services, for this project you can see something like this:
+After you have **Api calls** in you React application, you can see in AWS X-Ray the information about your API and all of its downstream services, for this project you can see something like this:
 
 ![View AWS X-Ray service maps and trace views](images/xray.png)
 

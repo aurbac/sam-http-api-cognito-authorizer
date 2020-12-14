@@ -8,7 +8,7 @@
 
 # Testing the API inside your React application with Amplify
 
-In you Amplify project replace your **src/App.js** with the following file [amplify/src/App.js](src/App.js) and **src/index.js** with the following file [src/index.js](amplify/src/index.js).
+In you Amplify project replace your **src/App.js** with the following file [src/App.js](amplify/src/App.js) and **src/index.js** with the following file [src/index.js](amplify/src/index.js).
 
 For **src/index.js** replace: `<HttpApiUrl>` and `<Region>` with your own values.
 

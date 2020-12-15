@@ -8,6 +8,7 @@ import os
 patch_all()
 
 def handler(event, context):
+    print(json.dumps(event))
     myres = {
             "statusCode": 200,
             'headers': {
@@ -16,7 +17,7 @@ def handler(event, context):
                 },
             "body": "",
         }
-    path_parameters = event['pathParameters']
+    body = json.loads(event['body'])
     MESSAGES_TABLE = os.environ['MESSAGES_TABLE']
     dynamodb = boto3.client("dynamodb")
     try:
@@ -24,7 +25,7 @@ def handler(event, context):
             TableName=MESSAGES_TABLE,
             Key={
                 'message': {
-                    'S': path_parameters['message']
+                    'S': body['message']
                 }
             },
             AttributeUpdates={
@@ -38,7 +39,7 @@ def handler(event, context):
         print(response)
         if 'Attributes' in response:
             myres['statusCode'] = 200
-            myres['body'] = json.dumps( { 'message': path_parameters['message'] + ' - ' + response['Attributes']['count']['N'] })
+            myres['body'] = json.dumps( { 'message': body['message'] + ' (' + response['Attributes']['count']['N'] + ')' })
             print(myres)
             return myres
         else:

@@ -25,12 +25,13 @@ class App extends Component {
     if (userInfo){
       try {
         let apiName = 'HttpApi';
-        let path = 'hello/hello';
+        let path = 'count-message';
         let myInit = {
             headers: { Authorization: `Bearer ${(await Auth.currentSession()).getAccessToken().getJwtToken()}` }, 
+            body: { message: "Hello world!" },
             response: true,
         }
-        API.get(apiName, path, myInit).then(response => {
+        API.post(apiName, path, myInit).then(response => {
             this.setState({ resultApiCall: response.data.message });
         }).catch(error => {
             console.log(error);

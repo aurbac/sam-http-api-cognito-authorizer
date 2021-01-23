@@ -8,7 +8,7 @@
 
 ## Deploy the SAM application
 
-Based on the `AWS Quick Start Template` update the **[template.yaml](template.yaml)** file and replace the files for the **[hello-world](hello-world)** code function folder.
+Based on the `AWS Quick Start Template` update the **[template.yaml](template.yaml)** file and replace the files for the **[hello_world](hello_world)** code function folder.
 
 To build your application run the following using a docker container:
 
